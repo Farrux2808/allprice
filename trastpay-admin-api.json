@@ -1,0 +1,9 @@
+{
+  "name"             : "trastpay-admin-api",
+  "script"           : "npm run start",
+  "log_date_format"  : "YYYY-MM-DD HH:mm:ss Z",
+  "out_file"         : "/server/.logs/trastpay-admin-api.log",
+  "error_file"       : "/server/.logs/trastpay-admin-api_error.log",
+  "merge_logs"       : true,
+  "autorestart"      : true
+}
