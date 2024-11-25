@@ -7,14 +7,12 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "outDir": "dist",
     "module": "commonjs",
     "target": "ES2020",
     "declaration": false,
-    "newLine": "lf",
-    "strict": true,
-    "moduleResolution": "node"
+    "newLine": "lf"
   },
   "include": ["src/**/*"],
   "exclude": [
