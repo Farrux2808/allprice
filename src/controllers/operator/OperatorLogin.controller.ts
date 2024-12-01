@@ -19,7 +19,6 @@ export async function OperatorLoginController(req: express.Request, res: express
       password: params.password,
       useragent: req.headers['user-agent'],
     });
-
     response = new OperatorLoginResponse(result.session, result.operator);
     sendSuccess(response, res);
   } catch (error) {

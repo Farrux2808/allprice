@@ -7,7 +7,7 @@ dotenv.config();
 let options = {
   protocol: `${process.env.APP_PROTOCOL}`,
   host: `${process.env.APP_HOST}`,
-  port: 9988,
+  port: parseInt(process.env.APP_PORT),
   mongoUrl: `${process.env.MONGO_URL}`,
   secret: `${process.env.SESSION_STORE_SECRET}`,
 };

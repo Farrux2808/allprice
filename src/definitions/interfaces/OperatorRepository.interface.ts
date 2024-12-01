@@ -8,6 +8,4 @@ export interface OperatorRepositoryInterface extends BaseCRUDRepositoryInterface
   deleteById(_id: Types.ObjectId): Promise<boolean>;
 
   getByEmail(email: string): Promise<OperatorEntity>;
-
-  deleteRolesFromMany(roleId: Types.ObjectId): Promise<boolean>;
 }

@@ -4,8 +4,7 @@ import { OperatorSessionMetadataSchema } from './OperatorSessionMetadata.schema'
 import { OperatorSchema } from '../Operator.schema';
 import { OperatorSessionStatusEnum } from '../../../definitions';
 
-@index({ ownerId: 1 })
-@index({ accessToken: 1 }, { unique: true })
+
 @modelOptions({
   options: {
     allowMixed: Severity.ALLOW,
@@ -18,7 +17,7 @@ export class OperatorSessionSchema {
   operator?: Ref<OperatorSchema>;
 
   /** Статус сеанса */
-  @prop({ enum: OperatorSessionStatusEnum })
+  @prop()
   status?: OperatorSessionStatusEnum;
 
   /** Токен доступа */

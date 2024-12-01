@@ -47,9 +47,4 @@ export class OperatorRepository extends BaseCRUDRepository<OperatorEntity, Opera
     const deleted = await OperatorModel.deleteOne({ _id: _id });
     return deleted.deletedCount === 1;
   }
-
-  async deleteRolesFromMany(roleId: Types.ObjectId): Promise<boolean> {
-    const updated = await OperatorModel.updateMany({ roles: roleId }, { $pull: { roles: roleId } });
-    return updated.modifiedCount === 1;
-  }
 }

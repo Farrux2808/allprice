@@ -1,4 +1,6 @@
 export * from './operator';
+export * from './external';
+
 export * from './Base.error';
 export * from './Requirement.error';
 export * from './FailToMatch.error';

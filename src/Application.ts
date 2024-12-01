@@ -42,7 +42,7 @@ export default class Application {
       optionsSuccessStatus: 204,
     };
     this.server = express();
-    this.server.set('trust proxy', true);
+    // this.server.set('trust proxy', true);
     this.server.use(bodyParser.urlencoded({ extended: true }));
     this.server.use(bodyParser.json({ limit: '50mb' }));
     this.server.use(express.json());

@@ -4,9 +4,9 @@ export class IdParams {
   /** ID */
   id: string;
 
-  constructor(params: IdParams) {
+  constructor(params: any) {
     if (params) {
-      this.id = params.id;
+      this.id = params?.id;
     }
   }
 

@@ -1,8 +1,8 @@
 import { Types } from 'mongoose';
 import { OperatorSchema } from '../../../database';
-import { OperatorStatusEnum } from '../../../definitions';
+import { BaseEntityInterface, OperatorStatusEnum } from '../../../definitions';
 
-export class OperatorEntity {
+export class OperatorEntity implements BaseEntityInterface<OperatorEntity, OperatorSchema> {
   protected _id?: Types.ObjectId;
   protected _fullName?: string;
   protected _email?: string;

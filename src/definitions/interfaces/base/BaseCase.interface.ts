@@ -1,7 +1,6 @@
-import { LanguageEnum } from "../../enums";
+import { LanguageEnum } from '../../enums';
 
 interface BaseRequestInterface {
-  refId?: string;
   client?: any; // ClientEntity, AdminEntity
   baseLang?: LanguageEnum;
 }

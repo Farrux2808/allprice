@@ -4,12 +4,23 @@ import { CheckOperatorSessionMiddleware, CheckOperatorTemporarySessionMiddleware
 
 import { SwaggerService } from './services';
 import {
+  CreateCategoryController,
   CreateOperatorController,
+  CreateServiceCategoryController,
+  DeleteCategoryByIdController,
   DeleteOperatorController,
+  DeleteServiceCategoryByIdController,
+  GetCategoryByIdController,
+  GetCategoryListController,
   GetOperatorByIdController,
   GetOperatorListController,
+  GetProductListByCategoryController,
+  GetServiceCategoryByIdController,
+  GetServiceCategoryListController,
   OperatorInitPasswordController,
   OperatorLoginController,
+  UpdateCategoryController,
+  UpdateServiceCategoryController,
 } from './controllers';
 
 function nestedRoutes(path, configure) {
@@ -31,12 +42,30 @@ routes.prefix('/operator', operators => {
   operators.post('/login', OperatorLoginController);
   operators.post('/init-password', CheckOperatorTemporarySessionMiddleware, OperatorInitPasswordController);
 
-  operators.use(CheckOperatorSessionMiddleware);
-
   operators.get('/list', CheckOperatorSessionMiddleware, GetOperatorListController);
   operators.get('/:id', CheckOperatorSessionMiddleware, GetOperatorByIdController);
   operators.post('/', CheckOperatorSessionMiddleware, CreateOperatorController);
   operators.delete('/:id', CheckOperatorSessionMiddleware, DeleteOperatorController);
+});
+
+routes.prefix('/category', category => {
+  category.get('/list', GetCategoryListController);
+  category.get('/:id', GetCategoryByIdController);
+  category.post('/', CheckOperatorSessionMiddleware, CreateCategoryController);
+  category.delete('/:id', CheckOperatorSessionMiddleware, DeleteCategoryByIdController);
+  category.put('/:id', CheckOperatorSessionMiddleware, UpdateCategoryController);
+});
+
+routes.prefix('/service-category', category => {
+  category.get('/list', CheckOperatorSessionMiddleware, GetServiceCategoryListController);
+  category.get('/:id', CheckOperatorSessionMiddleware, GetServiceCategoryByIdController);
+  category.post('/', CheckOperatorSessionMiddleware, CreateServiceCategoryController);
+  category.delete('/:id', CheckOperatorSessionMiddleware, DeleteServiceCategoryByIdController);
+  category.put('/:id', CheckOperatorSessionMiddleware, UpdateServiceCategoryController);
+});
+
+routes.prefix('/product', products => {
+  products.get('/list/:id', GetProductListByCategoryController);
 });
 
 export default routes;

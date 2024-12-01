@@ -30,7 +30,6 @@ export class CreateOperatorSessionByEmailCase
 {
   async execute(params: CreateOperatorSessionByEmailCaseParams): Promise<CreateOperatorSessionByEmailCaseResponse> {
     const operator = await Repository.Operator().getByEmail(params.email);
-
     if (!operator) throw new NotFoundError('Operator');
     const comparePassword = await new Password().buildPassword(params.password).buildHash(operator.getPassword()).compare();
     if (!comparePassword) {
